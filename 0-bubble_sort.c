@@ -10,14 +10,35 @@
 
 void bubble_sort(int *array, size_t size)
 {
-	/**
-	 * The size of the array would be monitored
-	 * then traverse through the array and look
-	 * for the largest value, compare the first
-	 * index with the next index. The comparison
-	 * would move from the index 0 to index [length
-	 * of the array - 2]. this is because the size
-	 * starts from 1 and the index starts from 0.
-	 * Next anytime the
-*/
+	int temp, unsortedRange;
+	int *swapped;
+	int i, len, j;
+
+	if (size < 2)
+		return;
+
+	unsortedRange = size;
+	len = size;
+	do {
+		swapped = NULL;
+		for (i = 0; i <= unsortedRange - 2; ++i)
+		{
+			if (array[i] > array[i + 1])
+			{
+				temp = array[i];
+				array[i] = array[i + 1];
+				array[i + 1] = temp;
+				swapped = &i;
+			}
+			for (j = 0; j <= len - 1; ++j)
+			{
+				printf("%d", array[j]);
+				if (j != len - 1)
+					printf(", ");
+				else
+					printf("\n");
+			}
+		}
+		--unsortedRange;
+	} while (swapped != NULL);
 }
