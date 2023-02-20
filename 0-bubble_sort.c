@@ -30,13 +30,16 @@ void bubble_sort(int *array, size_t size)
 				array[i + 1] = temp;
 				swapped = &i;
 			}
-			for (j = 0; j <= len - 1; ++j)
+			if (swapped != NULL)
 			{
-				printf("%d", array[j]);
-				if (j != len - 1)
-					printf(", ");
-				else
-					printf("\n");
+				for (j = 0; j <= len - 1; ++j)
+				{
+					printf("%d", array[j]);
+					if (j != len - 1)
+						printf(", ");
+					else
+						printf("\n");
+				}
 			}
 		}
 		--unsortedRange;
