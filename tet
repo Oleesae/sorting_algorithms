@@ -1,0 +1,27 @@
+	while (current->next != NULL)
+	{
+		current = current->next;
+		while (current->prev != NULL)
+		{
+			bef = current->prev;
+			if (current->n < bef->n)
+			{
+				if (bef->prev != NULL)
+				{
+					bbef = bef->prev;
+					bbef->next = current;
+				}
+				if (current->next != NULL)
+				{
+					aft = current->next;
+					aft->prev = bef;
+				}
+				current->prev = bef->prev;
+				bef->next = current->next;
+				current->next = bef;
+				bef->prev = current;
+				print_list(*list);
+			}
+		}
+	}
+//	listint_t *bef, *aft, *current, *bbef;
