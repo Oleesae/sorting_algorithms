@@ -26,7 +26,7 @@ int lomuto_partition(int *array, ssize_t first, ssize_t last, size_t size)
 {
 	int pivot = array[last];
 	ssize_t current = first, finder;
-	
+
 	for (finder = first; finder < last; finder++)
 	{
 		if (array[finder] < pivot)
@@ -56,12 +56,11 @@ int lomuto_partition(int *array, ssize_t first, ssize_t last, size_t size)
 void qs(int *array, ssize_t first, ssize_t last, int size)
 {
 	ssize_t position = 0;
-	
-	
+
 	if (first < last)
-:wq	{
+	{
 		position = lomuto_partition(array, first, last, size);
-		
+
 		qs(array, first, position - 1, size);
 		qs(array, position + 1, last, size);
 	}
